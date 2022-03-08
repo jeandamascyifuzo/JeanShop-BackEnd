@@ -1,2 +1,2 @@
-# today-s-exercise
+# jeanshop backend
 to work on pull request
