@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "to work on pull request",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,8 +19,10 @@
   },
   "homepage": "https://github.com/jeandamascyifuzo/JeanShop-BackEnd#readme",
   "dependencies": {
+    "crypto-js": "^4.1.1",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.4",
     "nodemon": "^2.0.15"
   }
