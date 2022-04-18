@@ -43,7 +43,7 @@ declare module 'stripe' {
       country: string;
 
       /**
-       * Time at which the object was created. Measured in seconds since the Unix epoch.
+       * Time at which the account was connected. Measured in seconds since the Unix epoch.
        */
       created?: number;
 
@@ -182,6 +182,11 @@ declare module 'stripe' {
         bancontact_payments?: Capabilities.BancontactPayments;
 
         /**
+         * The status of the customer_balance payments capability of the account, or whether the account can directly process customer_balance charges.
+         */
+        bank_transfer_payments?: Capabilities.BankTransferPayments;
+
+        /**
          * The status of the boleto payments capability of the account, or whether the account can directly process boleto charges.
          */
         boleto_payments?: Capabilities.BoletoPayments;
@@ -257,6 +262,11 @@ declare module 'stripe' {
         p24_payments?: Capabilities.P24Payments;
 
         /**
+         * The status of the paynow payments capability of the account, or whether the account can directly process paynow charges.
+         */
+        paynow_payments?: Capabilities.PaynowPayments;
+
+        /**
          * The status of the SEPA Direct Debits payments capability of the account, or whether the account can directly process SEPA Direct Debits charges.
          */
         sepa_debit_payments?: Capabilities.SepaDebitPayments;
@@ -280,6 +290,11 @@ declare module 'stripe' {
          * The status of the transfers capability of the account, or whether your platform can transfer funds to the account.
          */
         transfers?: Capabilities.Transfers;
+
+        /**
+         * The status of the US bank account ACH payments capability of the account, or whether the account can directly process US bank account charges.
+         */
+        us_bank_account_ach_payments?: Capabilities.UsBankAccountAchPayments;
       }
 
       namespace Capabilities {
@@ -292,6 +307,8 @@ declare module 'stripe' {
         type BacsDebitPayments = 'active' | 'inactive' | 'pending';
 
         type BancontactPayments = 'active' | 'inactive' | 'pending';
+
+        type BankTransferPayments = 'active' | 'inactive' | 'pending';
 
         type BoletoPayments = 'active' | 'inactive' | 'pending';
 
@@ -323,6 +340,8 @@ declare module 'stripe' {
 
         type P24Payments = 'active' | 'inactive' | 'pending';
 
+        type PaynowPayments = 'active' | 'inactive' | 'pending';
+
         type SepaDebitPayments = 'active' | 'inactive' | 'pending';
 
         type SofortPayments = 'active' | 'inactive' | 'pending';
@@ -332,6 +351,8 @@ declare module 'stripe' {
         type TaxReportingUs1099Misc = 'active' | 'inactive' | 'pending';
 
         type Transfers = 'active' | 'inactive' | 'pending';
+
+        type UsBankAccountAchPayments = 'active' | 'inactive' | 'pending';
       }
 
       interface Company {
@@ -1196,6 +1217,11 @@ declare module 'stripe' {
         bancontact_payments?: Capabilities.BancontactPayments;
 
         /**
+         * The bank_transfer_payments capability.
+         */
+        bank_transfer_payments?: Capabilities.BankTransferPayments;
+
+        /**
          * The boleto_payments capability.
          */
         boleto_payments?: Capabilities.BoletoPayments;
@@ -1271,6 +1297,11 @@ declare module 'stripe' {
         p24_payments?: Capabilities.P24Payments;
 
         /**
+         * The paynow_payments capability.
+         */
+        paynow_payments?: Capabilities.PaynowPayments;
+
+        /**
          * The sepa_debit_payments capability.
          */
         sepa_debit_payments?: Capabilities.SepaDebitPayments;
@@ -1294,6 +1325,11 @@ declare module 'stripe' {
          * The transfers capability.
          */
         transfers?: Capabilities.Transfers;
+
+        /**
+         * The us_bank_account_ach_payments capability.
+         */
+        us_bank_account_ach_payments?: Capabilities.UsBankAccountAchPayments;
       }
 
       namespace Capabilities {
@@ -1326,6 +1362,13 @@ declare module 'stripe' {
         }
 
         interface BancontactPayments {
+          /**
+           * Passing true requests the capability for the account, if it is not already requested. A requested capability may not immediately become active. Any requirements to activate the capability are returned in the `requirements` arrays.
+           */
+          requested?: boolean;
+        }
+
+        interface BankTransferPayments {
           /**
            * Passing true requests the capability for the account, if it is not already requested. A requested capability may not immediately become active. Any requirements to activate the capability are returned in the `requirements` arrays.
            */
@@ -1437,6 +1480,13 @@ declare module 'stripe' {
           requested?: boolean;
         }
 
+        interface PaynowPayments {
+          /**
+           * Passing true requests the capability for the account, if it is not already requested. A requested capability may not immediately become active. Any requirements to activate the capability are returned in the `requirements` arrays.
+           */
+          requested?: boolean;
+        }
+
         interface SepaDebitPayments {
           /**
            * Passing true requests the capability for the account, if it is not already requested. A requested capability may not immediately become active. Any requirements to activate the capability are returned in the `requirements` arrays.
@@ -1466,6 +1516,13 @@ declare module 'stripe' {
         }
 
         interface Transfers {
+          /**
+           * Passing true requests the capability for the account, if it is not already requested. A requested capability may not immediately become active. Any requirements to activate the capability are returned in the `requirements` arrays.
+           */
+          requested?: boolean;
+        }
+
+        interface UsBankAccountAchPayments {
           /**
            * Passing true requests the capability for the account, if it is not already requested. A requested capability may not immediately become active. Any requirements to activate the capability are returned in the `requirements` arrays.
            */
@@ -2278,6 +2335,11 @@ declare module 'stripe' {
         bancontact_payments?: Capabilities.BancontactPayments;
 
         /**
+         * The bank_transfer_payments capability.
+         */
+        bank_transfer_payments?: Capabilities.BankTransferPayments;
+
+        /**
          * The boleto_payments capability.
          */
         boleto_payments?: Capabilities.BoletoPayments;
@@ -2353,6 +2415,11 @@ declare module 'stripe' {
         p24_payments?: Capabilities.P24Payments;
 
         /**
+         * The paynow_payments capability.
+         */
+        paynow_payments?: Capabilities.PaynowPayments;
+
+        /**
          * The sepa_debit_payments capability.
          */
         sepa_debit_payments?: Capabilities.SepaDebitPayments;
@@ -2376,6 +2443,11 @@ declare module 'stripe' {
          * The transfers capability.
          */
         transfers?: Capabilities.Transfers;
+
+        /**
+         * The us_bank_account_ach_payments capability.
+         */
+        us_bank_account_ach_payments?: Capabilities.UsBankAccountAchPayments;
       }
 
       namespace Capabilities {
@@ -2408,6 +2480,13 @@ declare module 'stripe' {
         }
 
         interface BancontactPayments {
+          /**
+           * Passing true requests the capability for the account, if it is not already requested. A requested capability may not immediately become active. Any requirements to activate the capability are returned in the `requirements` arrays.
+           */
+          requested?: boolean;
+        }
+
+        interface BankTransferPayments {
           /**
            * Passing true requests the capability for the account, if it is not already requested. A requested capability may not immediately become active. Any requirements to activate the capability are returned in the `requirements` arrays.
            */
@@ -2519,6 +2598,13 @@ declare module 'stripe' {
           requested?: boolean;
         }
 
+        interface PaynowPayments {
+          /**
+           * Passing true requests the capability for the account, if it is not already requested. A requested capability may not immediately become active. Any requirements to activate the capability are returned in the `requirements` arrays.
+           */
+          requested?: boolean;
+        }
+
         interface SepaDebitPayments {
           /**
            * Passing true requests the capability for the account, if it is not already requested. A requested capability may not immediately become active. Any requirements to activate the capability are returned in the `requirements` arrays.
@@ -2548,6 +2634,13 @@ declare module 'stripe' {
         }
 
         interface Transfers {
+          /**
+           * Passing true requests the capability for the account, if it is not already requested. A requested capability may not immediately become active. Any requirements to activate the capability are returned in the `requirements` arrays.
+           */
+          requested?: boolean;
+        }
+
+        interface UsBankAccountAchPayments {
           /**
            * Passing true requests the capability for the account, if it is not already requested. A requested capability may not immediately become active. Any requirements to activate the capability are returned in the `requirements` arrays.
            */
